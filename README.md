@@ -3,6 +3,6 @@
 Current Features: Login/Logout, Upload Posts, See realtime posts uploaded by other users.
 
 I will upload more feature and update UI/UX.
-Upcoming Feature: Delete post, Manage User Account, Manage Activity,Like posts, Profile page, Connection feature.
+Feature that i might update in the future: Delete post, Manage User Account, Manage Activity,Like posts, Profile page, Connection feature, Message Systems.
 
 Web deploy: https://my-project-1cbdf.web.app/
