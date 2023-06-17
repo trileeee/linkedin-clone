@@ -25,7 +25,7 @@ const Login=()=> {
 
     }
     return (
-        <div className='grid place-items-center ml-auto mr-auto pt-20 pb-20' >
+        <div className='grid place-items-center ml-auto mr-auto pt-20 pb-20 bg-white w-full h-full' >
             
             <form className='flex flex-col '>
                 <img className="w-80 h-15" src="https://1000logos.net/wp-content/uploads/2023/01/LinkedIn-logo.png" alt="" />
@@ -44,7 +44,7 @@ const Login=()=> {
             </form>
             <p className='mt-4'>
                 Not a member? 
-              <Link to="./register"><span className='text-[#0177b7]'> Register now</span></Link>  
+              <Link to="/register"><span className='text-[#0177b7]'> Register now</span></Link>  
             </p>
 
         </div>

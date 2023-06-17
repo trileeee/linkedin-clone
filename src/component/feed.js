@@ -10,6 +10,7 @@ import { db } from '../firebase';
 import {collection,onSnapshot,addDoc,orderBy,serverTimestamp,query} from 'firebase/firestore';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
+import {doc,deleteDoc} from 'firebase/firestore';
 import FlipMove from 'react-flip-move';
 
 
@@ -42,10 +43,17 @@ const Feed = () => {
             message:message,
             photoUrl:'',
             timeStamp: serverTimestamp(),
+            uid:user.uid,
 
         })
       .then(()=>{console.log('Post added')})
       .catch((err)=>{console.log(err)})
+    }
+    //delete Post function
+    const deletePost=(id)=>{
+        deleteDoc(doc(db,"posts",id))
+            .then(()=>{console.log('Post deleted')})
+            .catch((err)=>{console.log(err)})
     }
 
     return(
@@ -70,13 +78,16 @@ const Feed = () => {
             {/* render post */}
                 {/* Post */}
                 <FlipMove>
-                {posts.map(({id,data:{name,description,message,photoUrl}})=>(
+                {posts.map(({id,data:{name,description,message,photoUrl,uid}})=>(
                     <Post
                     key={id}
+                    id={id}
                     name={name}
                     description={description}
                     message={message}
                     photoUrl={photoUrl}
+                    uid={uid}
+                    deletePost={()=>deletePost(id)}
                 />
                 ))}
                 </FlipMove>

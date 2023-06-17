@@ -10,16 +10,21 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
+import { useNavigate} from 'react-router-dom';
 
 
 
 const Header= () => {
     const dispatch=useDispatch();
-    const user=useSelector(selectUser)
-
+    const user=useSelector(selectUser);
+    const navigate=useNavigate();
+    
     const handleLogout = () => {
-        dispatch(logout())
+        dispatch(logout());
         auth.signOut();
+        navigate('/');
+
+       
     }
     return (
         <>

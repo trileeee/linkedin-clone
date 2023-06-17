@@ -30,7 +30,7 @@ const Register = () => {
   };
 
   return (
-    <div className="grid place-items-center mf-auto mr-auto pt-20 pb-20">
+    <div className="grid place-items-center mf-auto mr-auto pt-20 pb-20 bg-white w-full h-full">
       <form className="flex flex-col">
         <img
           className="w-80 h-15"

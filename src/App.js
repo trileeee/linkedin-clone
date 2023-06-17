@@ -36,20 +36,17 @@ function App() {
         // user is logged out
         dispatch(logout());
       }
-    });
-  }, []);
+    })
+  }, [])
   return (
-    <div className="flex bg-[#f3f2ef] flex-col " >
+    <Router>
+    <div className="flex bg-[#f3f2ef] flex-col min-h-screen h-full" >
       <Header/> 
-      {!user ?(
-             <Router>
-             <Routes>
-               <Route path="/" element={<Login />} />
-               <Route path="/register" element={<Register />} />
-             </Routes>
-           </Router>
-       
-
+      {!user ?(   
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       ) :(
 
         <div className="flex mt-7 mx-10 ml-16">
@@ -59,6 +56,7 @@ function App() {
         </div>
       )}
       </div>
+      </Router>
   );
 }
 
