@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import AvatarIcon from './avatar';
 
 const Post = forwardRef(({ id,name, description, message, photoUrl,uid,deletePost }, ref) => {
   const user=useSelector(selectUser);
@@ -32,7 +33,7 @@ const Post = forwardRef(({ id,name, description, message, photoUrl,uid,deletePos
   return (
     <div ref={ref} className="bg-white p-4 rounded-xl mt-2">
       <div className="flex mb-4">
-        <Avatar src={photoUrl}>{name[0]}</Avatar>
+        <AvatarIcon></AvatarIcon>
         <div className="ml-4 flex-grow">
           <h2 className="text-base font-bold">{name}</h2>
           <p className="text-xs text-gray-400">{description}</p>

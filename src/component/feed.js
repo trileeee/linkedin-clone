@@ -37,6 +37,7 @@ const Feed = () => {
     // Send Posts data to database everytime user submit form
     const sendPost=(e)=>{
         e.preventDefault();
+        setMessage('');
         addDoc((collection(db,"posts")),{
             name: user.displayName,
             description: user.email,
@@ -46,7 +47,8 @@ const Feed = () => {
             uid:user.uid,
 
         })
-      .then(()=>{console.log('Post added')})
+      .then(()=>{
+        console.log('Post added')})
       .catch((err)=>{console.log(err)})
     }
     //delete Post function
@@ -64,7 +66,7 @@ const Feed = () => {
                 <div className='rounded-3xl border border-solid border-[lightgray] p-3 pl-4 flex flex-row'>
                 <CreateIcon/>
                 <form onSubmit={sendPost} className='flex border-none w-[100%]'action="">
-                    <input onChange={(e)=>(setMessage(e.target.value))} className='outline-none flex flex-1' type="text" />
+                    <input value={message} onChange={(e)=>(setMessage(e.target.value))} className='outline-none flex flex-1' type="text" />
                     <button type="submit">Send</button>
                 </form>
                 </div>
