@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 
 
-const AvatarIcon=({className})=>{
+const AvatarIcon=({className,postAvatar})=>{
     const user=useSelector(selectUser);
     function stringToColor(string) {
         let hash = 0;
@@ -35,6 +35,7 @@ const AvatarIcon=({className})=>{
         };
       }
     return (
+        postAvatar ? <Avatar className={className} {...stringAvatar(postAvatar)} > {postAvatar[0]}</Avatar> :
         <Avatar className={className} {...stringAvatar(user.email)}>{user.email[0]}</Avatar>
     )
 }
